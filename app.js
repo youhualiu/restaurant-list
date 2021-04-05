@@ -4,11 +4,12 @@ const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
-const restaurantList = require('./restaurant.json')
+//const restaurantList = require('./restaurant.json')
 
 // setting database connection
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
+const Restaurant = require('./models/restaurant')
 
 // testing connection status
 db.once('open', () => {
@@ -25,23 +26,33 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 // route setting
+// putting database data into index template engine
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results })
+  Restaurant.find()
+    .lean()
+    .sort({ id: 'asc' })
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log('failed to render the data from mongodb'))
 })
 
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurants = restaurantList.results.find((store) => {
-    return store.id.toString() === req.params.restaurant_id
-  })
-  res.render('show', { restaurants: restaurants })
+// rendering show page
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  Restaurant.findOne({ id: req.params.id })
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
 })
 
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  const restaurants = restaurantList.results.filter((store) => {
-    return store.name.toLowerCase().includes(keyword.toLowerCase())
+  let keyword = req.query.keyword
+  Restaurant.find({
+    '$or': [
+      { name: { $regex: keyword, $options: 'si' } },
+      { category: { $regex: keyword, $options: 'si' } }
+    ]
   })
-  res.render('index', { restaurants: restaurants, keyword: keyword })
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
 })
 
 // start and listen on the Express server

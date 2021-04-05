@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const listSchema = new Schema({
+const restaurantSchema = new Schema({
   id: {
-    type: Number,
-    required: true
+    type: String,
   },
   name: {
     type: String,
@@ -35,4 +34,4 @@ const listSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('List', listSchema)
+module.exports = mongoose.model('Restaurant', restaurantSchema)
