@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 mx-auto">
+      <!--form-->
+      <form class="mt-5" action="/edit/{{restaurant.id}}" method="POST">
+        <div class="mb-2">
+          <label for="restaurant_id" class="form-label">ID</label>
+          <input type="text" class="form-control" id="restaurant_id" name="id"
+            placeholder="Please type the id number..." value={{ restaurant.id}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_name" class="form-label">Restaurant Name</label>
+          <input type="text" class="form-control" id="restaurant_name" name="name"
+            placeholder="Please type the restaurant name..." value={{ restaurant.name}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_name_en" class="form-label">Restaurant English Name</label>
+          <input type="text" class="form-control" id="restaurant_name_en" name="name_en"
+            placeholder="Please type the restaurant English name..." value={{ restaurant.name_en}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_category" class="form-label">Category</label>
+          <input type="text" class="form-control" id="restaurant_category" name="category"
+            placeholder="Please type the category..." value={{ restaurant.category}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_image" class="form-label">Image</label>
+          <input type="url" class="form-control" id="restaurant_image" name="image"
+            placeholder="Please type the restaurant url..." value={{ restaurant.image}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_location" class="form-label">Location</label>
+          <input type="text" class="form-control" id="restaurant_location" name="location"
+            placeholder="Please type the location..." value={{ restaurant.location}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="restaurant_phone" name="phone"
+            placeholder="Please type the phone number..." value={{ restaurant.phone}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_map" class="form-label">Map</label>
+          <input type="url" class="form-control" id="restaurant_map" name="google_map"
+            placeholder="Please type the map url..." value={{ restaurant.google_map}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_rating" class="form-label">Rating</label>
+          <input type="text" class="form-control" id="restaurant_rating" name="rating"
+            placeholder="Please type the rating..." value={{ restaurant.rating}}>
+        </div>
+        <div class="mb-2">
+          <label for="restaurant_description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="restaurant_description" name="description"
+            placeholder="Please type the description..." value={{ restaurant.description}}>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

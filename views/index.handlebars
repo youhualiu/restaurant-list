@@ -20,7 +20,8 @@
 <!-- restaurant list -->
 <div class="container mt-5">
   <!--add button-->
-  <a href="/create" style="margin: 8vw; font-size: 30px"><i class="fas fa-plus-circle"></i></a></i>
+  <a href="/create" style="margin-left: 8vw; font-size: 30px"><i class="fas fa-plus-circle"></i></a></i>
+  <span>增加新的餐廳到清單裡</span>
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
@@ -36,9 +37,12 @@
               </div>
 
               <span class="badge badge-pill badge-danger font-weight-normal">
-                4.1
+                {{ this.rating }}
                 <i class="fas fa-star fa-xs"></i>
               </span>
+              <a href="/edit/{{this.id}}" class="text-secondary">
+                <i class="fas fa-pen" style="margin-left: 12vw"></i>
+              </a>
 
             </div>
           </div>
