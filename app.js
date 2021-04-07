@@ -1,10 +1,10 @@
 // require package used in the project
 const express = require('express')
-const app = express()
-const port = 3000
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const app = express()
+const port = 3000
 
 // setting database connection
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -17,7 +17,7 @@ db.once('open', () => {
 })
 
 db.on('error', () => {
-  console.log('mongoDB failed to connect  ')
+  console.log('mongoDB failed to connect')
 })
 
 // setting template engine
@@ -120,6 +120,13 @@ app.post('/edit/:id', (req, res) => {
       restaurant.description = description
       return restaurant.save()
     })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurant/:id', (req, res) => {
+  return Restaurant.findOne({ id: req.params.id })
+    .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })

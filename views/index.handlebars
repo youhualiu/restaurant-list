@@ -38,13 +38,20 @@
                 <i class="fas fa-utensils pr-2"></i> {{this.category}}
               </div>
 
-              <span class="badge badge-pill badge-danger font-weight-normal">
-                {{ this.rating }}
-                <i class="fas fa-star fa-xs"></i>
-              </span>
-              <a href="/edit/{{this.id}}" class="text-secondary">
-                <i class="fas fa-pen" style="margin-left: 12vw"></i>
-              </a>
+              <div class="d-flex flex-row">
+                <span class="badge badge-pill badge-danger font-weight-normal">
+                  {{ this.rating }}
+                  <i class="fas fa-star fa-xs"></i>
+                </span>
+                <a href="/edit/{{this.id}}" class="text-secondary">
+                  <i class="fas fa-pen" style="margin-left: 11.5vw; margin-right:0.5vw"></i>
+                </a>
+                <form action="/restaurant/{{this.id}}" method="POST">
+                  <button type="submit" class="delete">
+                    <i type="submit" class="fas fa-trash-alt "></i>
+                  </button>
+                </form>
+              </div>
 
             </div>
           </div>
