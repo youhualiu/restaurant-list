@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 // rendering show page
 app.get('/restaurants/:id', (req, res) => {
-  Restaurant.findOne({ id: req.params.id })
+  Restaurant.findById(req.params.id)
     .lean()
     .then(restaurant => res.render('show', { restaurant }))
 })
@@ -61,7 +61,6 @@ app.get('/create', (req, res) => {
 })
 
 app.post('/create', (req, res) => {
-  const id = req.body.id
   const name = req.body.name
   const name_en = req.body.name_en
   const category = req.body.category
@@ -73,7 +72,6 @@ app.post('/create', (req, res) => {
   const description = req.body.description
 
   return Restaurant.create({
-    id,
     name,
     name_en,
     category,
@@ -89,13 +87,12 @@ app.post('/create', (req, res) => {
 })
 
 app.get('/edit/:id', (req, res) => {
-  Restaurant.findOne({ id: req.params.id })
+  Restaurant.findById(req.params.id)
     .lean()
     .then(restaurant => res.render('edit', { restaurant }))
 })
 
 app.post('/edit/:id', (req, res) => {
-  const id = req.body.id
   const name = req.body.name
   const name_en = req.body.name_en
   const category = req.body.category
@@ -108,7 +105,6 @@ app.post('/edit/:id', (req, res) => {
 
   return Restaurant.findOne({ id: req.params.id })
     .then(restaurant => {
-      restaurant.id = id
       restaurant.name = name
       restaurant.name_en = name_en
       restaurant.category = category
@@ -125,7 +121,7 @@ app.post('/edit/:id', (req, res) => {
 })
 
 app.post('/restaurant/:id', (req, res) => {
-  return Restaurant.findOne({ id: req.params.id })
+  return Restaurant.findById(req.params.id)
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
