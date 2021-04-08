@@ -2,12 +2,7 @@
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
       <!--form-->
-      <form class="mt-5" action="/edit/{{restaurant.id}}" method="POST">
-        <div class="mb-2">
-          <label for="restaurant_id" class="form-label">ID</label>
-          <input type="text" class="form-control" id="restaurant_id" name="id"
-            placeholder="Please type the id number..." value={{ restaurant.id}}>
-        </div>
+      <form class="mt-5" action="/edit/{{restaurant._id}}" method="POST">
         <div class="mb-2">
           <label for="restaurant_name" class="form-label">Restaurant Name</label>
           <input type="text" class="form-control" id="restaurant_name" name="name"

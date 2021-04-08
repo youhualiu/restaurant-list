@@ -21,7 +21,7 @@
 <div class="container mt-5">
   <!--add button-->
   <div class="d-flex align-items-center">
-    <a href="/create" style="margin-left: 7vw; font-size: 30px"><i class="fas fa-plus-circle mr-2"></i></a></i>
+    <a href="/create" style="margin-left: 6.2vw; font-size: 30px"><i class="fas fa-plus-circle mr-2"></i></a>
     <span style="font-size: 20px">增加新的餐廳到清單裡</span>
   </div>
   <div class="row">
@@ -43,9 +43,11 @@
                   {{ this.rating }}
                   <i class="fas fa-star fa-xs"></i>
                 </span>
+                <!-- editing function -->
                 <a href="/edit/{{this._id}}" class="text-secondary">
                   <i class="fas fa-pen" style="margin-left: 11.5vw; margin-right:0.5vw"></i>
                 </a>
+                <!-- deleting function -->
                 <form action="/restaurant/{{this._id}}" method="POST">
                   <button type="submit" class="delete">
                     <i type="submit" class="fas fa-trash-alt "></i>
