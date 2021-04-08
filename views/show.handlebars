@@ -6,7 +6,7 @@
       style="margin-left: 11.5vw; margin-right:0.5vw; font-size: 25px; color: rgb(223, 166, 175)"></i>
   </a>
   <!-- deleting function-->
-  <form action="/restaurant/{{restaurant._id}}" method="POST">
+  <form action="/restaurant/{{restaurant._id}}?_method=DELETE" method="POST">
     <button type="submit" class="delete">
       <i type="submit" class="fas fa-trash-alt" style="font-size: 25px; color: rgb(223, 166, 175);"></i>
     </button>

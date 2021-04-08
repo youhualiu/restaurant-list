@@ -3,6 +3,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const app = express()
 const port = 3000
 
@@ -25,6 +26,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 // route setting
 // putting database data into index template engine
@@ -92,7 +94,7 @@ app.get('/edit/:id', (req, res) => {
     .then(restaurant => res.render('edit', { restaurant }))
 })
 
-app.post('/edit/:id', (req, res) => {
+app.put('/edit/:id', (req, res) => {
   const name = req.body.name
   const name_en = req.body.name_en
   const category = req.body.category
@@ -103,7 +105,7 @@ app.post('/edit/:id', (req, res) => {
   const rating = req.body.rating
   const description = req.body.description
 
-  return Restaurant.findOne({ id: req.params.id })
+  return Restaurant.findById(req.params.id)
     .then(restaurant => {
       restaurant.name = name
       restaurant.name_en = name_en
@@ -120,7 +122,7 @@ app.post('/edit/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurant/:id', (req, res) => {
+app.delete('/restaurant/:id', (req, res) => {
   return Restaurant.findById(req.params.id)
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
