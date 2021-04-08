@@ -4,53 +4,52 @@
       <!--form-->
       <form class="mt-5" action="/edit/{{restaurant._id}}" method="POST">
         <div class="mb-2">
-          <label for="restaurant_name" class="form-label">Restaurant Name</label>
+          <label for="restaurant_name" class="form-label">餐廳名稱</label>
           <input type="text" class="form-control" id="restaurant_name" name="name"
             placeholder="Please type the restaurant name..." value={{ restaurant.name}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_name_en" class="form-label">Restaurant English Name</label>
+          <label for="restaurant_name_en" class="form-label">英文名稱</label>
           <input type="text" class="form-control" id="restaurant_name_en" name="name_en"
             placeholder="Please type the restaurant English name..." value={{ restaurant.name_en}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_category" class="form-label">Category</label>
+          <label for="restaurant_category" class="form-label">類型</label>
           <input type="text" class="form-control" id="restaurant_category" name="category"
             placeholder="Please type the category..." value={{ restaurant.category}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_image" class="form-label">Image</label>
+          <label for="restaurant_image" class="form-label">圖片</label>
           <input type="url" class="form-control" id="restaurant_image" name="image"
             placeholder="Please type the restaurant url..." value={{ restaurant.image}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_location" class="form-label">Location</label>
+          <label for="restaurant_location" class="form-label">地址</label>
           <input type="text" class="form-control" id="restaurant_location" name="location"
             placeholder="Please type the location..." value={{ restaurant.location}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_phone" class="form-label">Phone Number</label>
+          <label for="restaurant_phone" class="form-label">電話</label>
           <input type="tel" class="form-control" id="restaurant_phone" name="phone"
             placeholder="Please type the phone number..." value={{ restaurant.phone}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_map" class="form-label">Map</label>
+          <label for="restaurant_map" class="form-label">地圖</label>
           <input type="url" class="form-control" id="restaurant_map" name="google_map"
             placeholder="Please type the map url..." value={{ restaurant.google_map}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_rating" class="form-label">Rating</label>
+          <label for="restaurant_rating" class="form-label">評分</label>
           <input type="text" class="form-control" id="restaurant_rating" name="rating"
             placeholder="Please type the rating..." value={{ restaurant.rating}}>
         </div>
         <div class="mb-2">
-          <label for="restaurant_description" class="form-label">Description</label>
+          <label for="restaurant_description" class="form-label">筆記</label>
           <input type="text" class="form-control" id="restaurant_description" name="description"
             placeholder="Please type the description..." value={{ restaurant.description}}>
         </div>
 
-        <button type="submit" class="btn btn-danger">Save</button>
-        <a href="/"><button class="btn btn-outline-primary m-2">Back</button></a>
+        <button type="submit" class="btn btn-danger">儲存</button>
       </form>
     </div>
   </div>
