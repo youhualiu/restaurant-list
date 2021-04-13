@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "seed": "node models/seeds/restaurantSeeder.js"
+    "seed": "node models/seeds/restaurantSeeder.js",
+    "test": "standard"
   },
   "keywords": [],
   "author": "",

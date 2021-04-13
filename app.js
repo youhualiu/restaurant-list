@@ -1,7 +1,6 @@
 // require package used in the project
 const express = require('express')
 const exphbs = require('express-handlebars')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
@@ -11,9 +10,6 @@ require('./config/mongoose')
 // setting routes 
 const routes = require('./routes')
 
-// connecting models
-const Restaurant = require('./models/restaurant')
-
 // setting template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -21,8 +17,6 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(routes)
-
-// route setting
 
 // start and listen on the Express server
 app.listen(port, () => {
