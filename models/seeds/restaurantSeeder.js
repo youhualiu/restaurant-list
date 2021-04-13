@@ -1,7 +1,5 @@
 // connecting to database
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
+require('../../config/mongoose')
 // connecting to Restaurant model
 const Restaurant = require('../restaurant')
 

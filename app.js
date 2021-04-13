@@ -6,23 +6,13 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
 const port = 3000
+require('./config/mongoose')
 
-// setting 
+// setting routes 
 const routes = require('./routes')
 
-// setting database connection
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
+// connecting models
 const Restaurant = require('./models/restaurant')
-
-// testing connection status
-db.once('open', () => {
-  console.log('mongoDB connected')
-})
-
-db.on('error', () => {
-  console.log('mongoDB failed to connect')
-})
 
 // setting template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
