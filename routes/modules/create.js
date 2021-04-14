@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const restaurant = require('../../models/restaurant')
+const Restaurant = require('../../models/restaurant')
 
 router.get('/', (req, res) => {
   res.render('create')
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     phone,
     google_map,
     rating,
-    description,
+    description
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))

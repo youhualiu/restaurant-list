@@ -1,5 +1,5 @@
 // connecting to database
-require('../../config/mongoose')
+const db = require('../../config/mongoose')
 // connecting to Restaurant model
 const Restaurant = require('../restaurant')
 
